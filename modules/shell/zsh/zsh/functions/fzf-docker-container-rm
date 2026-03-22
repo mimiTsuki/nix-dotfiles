@@ -1,0 +1,6 @@
+# docker container rm
+fzf-docker-container-rm() {
+  local cid
+  cid=$(docker ps -a | sed 1d | fzf -m -q "$1" | awk '{print $1}')
+  [ -n "$cid" ] && echo $cid | xargs docker container rm -f
+}

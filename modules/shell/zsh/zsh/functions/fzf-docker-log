@@ -1,0 +1,6 @@
+# fzfでdockerのログを取得
+fzf-docker-log() {
+  local cid
+  cid=$(docker ps -a | sed 1d | fzf -q "$1" | awk '{print $1}')
+  [ -n "$cid" ] && docker logs -f --tail=200 "$cid"
+}

@@ -1,0 +1,7 @@
+[tools]
+"lua-language-server" = "latest"
+"rust-analyzer" = "latest"
+"npm:@vtsls/language-server" = "latest"
+"npm:@tailwindcss/language-server" = "latest"
+"node" = "latest"
+"pnpm" = "latest"

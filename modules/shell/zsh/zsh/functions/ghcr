@@ -1,0 +1,12 @@
+# GitHubのリポジトリを作成し、ghqに登録してディレクトリに移動する
+ghcr () {
+    gh repo create $@
+    ghq get $1
+    REPO_PATH=$(ghq list --full-path -e $1)
+
+    if [ -z "$REPO_PATH" ]; then
+        exit 0
+    fi
+
+    cd $REPO_PATH
+}

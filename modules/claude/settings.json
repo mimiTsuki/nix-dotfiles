@@ -1,0 +1,146 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm:*)",
+      "Bash(pnpm:*)",
+      "Bash(mise:*)",
+      "Bash(direnv:*)",
+      "Bash(ls:*)",
+      "Bash(eza:*)",
+      "Bash(cat:*)",
+      "Bash(bat:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(find:*)",
+      "Bash(fd:*)",
+      "Bash(fzf:*)",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(echo:*)",
+      "Bash(which:*)",
+      "Bash(pwd)",
+      "Bash(cd:*)",
+      "Bash(tree:*)",
+      "Bash(jq:*)",
+      "Bash(yq:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(sort:*)",
+      "Bash(awk:*)",
+      "Bash(sed:*)",
+      "Bash(ps:*)",
+      "Bash(date:*)",
+      "Bash(whoami)",
+      "WebFetch(domain:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~)",
+      "Bash(rm -rf /*)",
+      "Bash(sudo rm:*)",
+      "Bash(sudo dd:*)",
+      "Bash(sudo mkfs:*)",
+      "Bash(sudo fdisk:*)",
+      "Bash(sudo mount:*)",
+      "Bash(sudo umount:*)",
+      "Bash(mkfs:*)",
+      "Bash(fdisk:*)",
+      "Bash(> /dev/*)",
+      "Bash(>> /dev/*)",
+      "Bash(chmod 777 /*)",
+      "Bash(chown root:*)",
+      "Bash(sudo chmod 777:*)",
+      "Bash(sudo chown:*)",
+      "Bash(sudo -i:*)",
+      "Bash(sudo su:*)",
+      "Bash(sudo passwd:*)",
+      "Bash(sudo vipw:*)",
+      "Bash(sudo vigr:*)",
+      "Bash(sudo visudo:*)",
+      "Bash(rm -rf .git)",
+      "Bash(git push:*)",
+      "Bash(npm publish)",
+      "Edit(/etc/**)",
+      "Edit(/usr/**)",
+      "Edit(/var/**)",
+      "Edit(/opt/**)",
+      "Edit(/bin/**)",
+      "Edit(/sbin/**)",
+      "Edit(/lib/**)",
+      "Edit(/lib64/**)",
+      "Edit(/boot/**)",
+      "Edit(/proc/**)",
+      "Edit(/sys/**)",
+      "Edit(/dev/**)",
+      "Edit(~/.ssh/id_*)",
+      "Edit(~/.ssh/*_rsa)",
+      "Edit(~/.ssh/*_ecdsa)",
+      "Edit(~/.ssh/*_ed25519)",
+      "Edit(/etc/passwd)",
+      "Edit(/etc/shadow)",
+      "Edit(/etc/sudoers)",
+      "Write(/etc/**)",
+      "Write(/usr/**)",
+      "Write(/var/**)",
+      "Write(/opt/**)",
+      "Write(/bin/**)",
+      "Write(/sbin/**)",
+      "Write(/lib/**)",
+      "Write(/lib64/**)",
+      "Write(/boot/**)",
+      "Write(/proc/**)",
+      "Write(/sys/**)",
+      "Write(/dev/**)",
+      "Write(~/.ssh/id_*)",
+      "Write(~/.ssh/*_rsa)",
+      "Write(~/.ssh/*_ecdsa)",
+      "Write(~/.ssh/*_ed25519)",
+      "Write(/etc/passwd)",
+      "Write(/etc/shadow)",
+      "Write(/etc/sudoers)"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "commit-commands@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "sh /Users/mimitsuki/.claude/statusline-command.sh"
+  }
+}
+
