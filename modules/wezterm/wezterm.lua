@@ -13,7 +13,8 @@ end)
 return {
   automatically_reload_config = true,
   use_ime = true,
-  send_composed_key_when_left_alt_is_pressed = true,
+  send_composed_key_when_left_alt_is_pressed = false,
+  send_composed_key_when_right_alt_is_pressed = true,
   font = wezterm.font 'HackGen',
   font_size = 14.0,
   color_scheme = "Nord (Gogh)",
