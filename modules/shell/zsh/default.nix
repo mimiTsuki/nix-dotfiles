@@ -23,10 +23,12 @@
         fdl = "fzf-docker-log";
         fgco = "fzf-git-checkout";
         fgl = "fzf-git-log";
+        ga = "git add";
         gs = "git status";
         gbr = "git branch";
         gch = "git checkout";
         gco = "claude --no-session-persistence --strict-mcp-config --model haiku -p \"/commit-jp\"";
+        gl = "git log";
       };
     };
 
