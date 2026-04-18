@@ -1,6 +1,6 @@
-{ ... }:
+{ lib, ... }:
 {
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
   '';
 

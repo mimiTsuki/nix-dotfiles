@@ -28,5 +28,3 @@
     default = current
 [fetch]
     prune = true
-[credential]
-    helper = !/home/@username@/.nix-profile/bin/gh auth git-credential

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -45,17 +45,18 @@
       }
     ];
 
-    # compinit前に実行（Cursor Agent Mode対応の早期リターン）
-    initExtraBeforeCompInit = ''
-      if [[ -n "$npm_config_yes" ]] || [[ -n "$CI" ]] || [[ "$-" != *i* ]]; then
-        return
-      fi
-      export GPG_TTY=$TTY
-    '';
-
-    initExtra = ''
-      source "$HOME/zsh/init.zsh"
-    '';
+    initContent = lib.mkMerge [
+      # compinit前に実行（Cursor Agent Mode対応の早期リターン）
+      (lib.mkOrder 550 ''
+        if [[ -n "$npm_config_yes" ]] || [[ -n "$CI" ]] || [[ "$-" != *i* ]]; then
+          return
+        fi
+        export GPG_TTY=$TTY
+      '')
+      ''
+        source "$HOME/zsh/init.zsh"
+      ''
+    ];
 
   };
 
