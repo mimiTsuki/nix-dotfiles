@@ -23,8 +23,8 @@
     }:
     let
       sudoUser = builtins.getEnv "SUDO_USER";
-      rawUsername = if sudoUser != "" then sudoUser else builtins.getEnv "USER";
-      username = if rawUsername == "" then throw "環境変数 USER が設定されていません。" else rawUsername;
+      rawUsername = if sudoUser != "" then sudoUser else builtins.getEnv "LOGNAME";
+      username = if rawUsername == "" then throw "環境変数 LOGNAME が設定されていません。" else rawUsername;
       makeDarwinSystem =
         { username, host }:
         nix-darwin.lib.darwinSystem {
