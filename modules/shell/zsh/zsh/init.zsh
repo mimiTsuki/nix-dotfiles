@@ -1,3 +1,5 @@
+export PATH="$HOME/.local/bin:$PATH"
+
 # 補完スタイル
 zstyle ':completion:*' matcher-list "" 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}'
 zstyle ':completion:*' format '%B%F{blue}%d%f%b'

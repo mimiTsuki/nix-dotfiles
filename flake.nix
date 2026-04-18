@@ -22,13 +22,9 @@
       ...
     }:
     let
-      usernameFile = ./.username;
-      rawUsername =
-        if builtins.pathExists usernameFile then
-          builtins.replaceStrings [ "\n" "\r" " " ] [ "" "" "" ] (builtins.readFile usernameFile)
-        else
-          throw ".username ファイルが見つかりません。.username.sample を参考に .username を作成してください。";
-      username = if rawUsername == "" then throw ".username ファイルが空です。ユーザー名を記入してください。" else rawUsername;
+      sudoUser = builtins.getEnv "SUDO_USER";
+      rawUsername = if sudoUser != "" then sudoUser else builtins.getEnv "USER";
+      username = if rawUsername == "" then throw "環境変数 USER が設定されていません。" else rawUsername;
       makeDarwinSystem =
         { username, host }:
         nix-darwin.lib.darwinSystem {
@@ -65,10 +61,10 @@
         };
       };
       homeConfigurations = {
-        "${username}" = makeHomeConfig {
+        "wl25" = makeHomeConfig {
           username = username;
           system = "x86_64-linux";
-          host = "wsl";
+          host = "wl25";
         };
       };
       modules = [ ./modules ];
