@@ -30,6 +30,12 @@ return {
     { key = 'd', mods = 'SUPER|SHIFT', action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
     { key = 'p', mods = 'SUPER',       action = wezterm.action.PaneSelect },
     { key = 'w', mods = 'SUPER',       action = wezterm.action.CloseCurrentPane { confirm = true } },
+    -- バックスラッシュ
+    {
+        key = "raw:93",
+        mods = "ALT",
+        action = wezterm.action.SendString("\\"),
+    },
     {
       --tabの名前変更
       key = "m",
