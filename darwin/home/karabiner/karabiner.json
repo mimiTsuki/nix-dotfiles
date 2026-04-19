@@ -5,6 +5,21 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "backslash",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "international1" },
+                                "to": [
+                                    {
+                                        "key_code": "international3",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Layer",
                         "manipulators": [
                             {
