@@ -9,6 +9,7 @@ return {
         { "gh",        "<cmd>lua vim.lsp.buf.hover()       <CR>" },
         { "gd",        "<cmd>lua vim.lsp.buf.definition()  <CR>" },
         { "gD",        "<cmd>lua vim.lsp.buf.declaration() <CR>" },
+        { "gq",        "<cmd>lua vim.lsp.buf.format()      <CR>" },
         --[
         -- Note: default mapping is as follows:
         --   * grn   => vim.lsp.buf.rename()

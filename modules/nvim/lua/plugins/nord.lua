@@ -24,5 +24,6 @@ return {
                 quote_highlight = "Quote",
             },
         })
+        vim.cmd[[colorscheme nord]]
     end,
 }
