@@ -140,7 +140,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "sh /Users/mimitsuki/.claude/statusline-command.sh"
+    "command": "sh ~/.claude/statusline-command.sh"
   }
 }
 
