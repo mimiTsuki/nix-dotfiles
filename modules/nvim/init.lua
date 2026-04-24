@@ -1,5 +1,3 @@
-vim.keymap.set("n", "<S-h>", "0", { noremap = true })
-vim.keymap.set("n", "<S-l>", "$", { noremap = true })
 vim.keymap.set("i", "jj", "<esc>", { noremap = true, silent = true })
 
 
