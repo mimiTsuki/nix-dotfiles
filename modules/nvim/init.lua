@@ -47,6 +47,22 @@ end
 require("config.lazy")
 require("config.lsp")
 
+local function get_relative_path()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  if #clients > 0 then
+    local root = clients[1].config.root_dir
+    local abs = vim.api.nvim_buf_get_name(0)
+    return vim.fn.fnamemodify(abs, ':~:.'):gsub('^' .. vim.pesc(root) .. '/', '')
+  end
+  return vim.fn.expand('%:.')
+end
+
+vim.keymap.set("n", "<S-p>", function()
+  local path = get_relative_path()
+  vim.fn.setreg("+", path)
+  vim.notify(path, vim.log.levels.INFO)
+end, { noremap = true, silent = true, desc = "Copy relative path to clipboard" })
+
 -- QuickScope
 vim.cmd 'highlight QuickScopePrimary guifg=#afff5f gui=underline ctermfg=155 cterm=underline'
 vim.cmd 'highlight QuickScopeSecondary guifg=#5fffff gui=underline ctermfg=81 cterm=underline'
