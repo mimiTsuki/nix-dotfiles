@@ -25,6 +25,8 @@ local options = {
     writebackup = false,
     updatetime = 300,
     signcolumn = "yes",
+    cursorline = true,
+    cursorcolumn = true,
     list = true,
     listchars = { tab = "»·", nbsp = "·", space = "·" },
     termguicolors = true,
