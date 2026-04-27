@@ -23,6 +23,7 @@
     mkcert
     ripgrep
     tree
+    tree-sitter
     watch
     wget
     yq-go

@@ -24,6 +24,7 @@
     ".config/nvim/lua/plugins/nord.lua".source = ./lua/plugins/nord.lua;
     ".config/nvim/lua/plugins/nvim-lspconfig.lua".source = ./lua/plugins/nvim-lspconfig.lua;
     ".config/nvim/lua/plugins/telescope.lua".source = ./lua/plugins/telescope.lua;
+    ".config/nvim/lua/plugins/treesitter.lua".source = ./lua/plugins/treesitter.lua;
     ".config/nvim/lua/plugins/which-key.lua".source = ./lua/plugins/which-key.lua;
   };
 }
