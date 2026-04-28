@@ -29,6 +29,7 @@
         gch = "git checkout";
         gco = "claude --no-session-persistence --strict-mcp-config --model haiku -p \"/commit-jp\"";
         gl = "git log";
+        glo = "git log --oneline";
       };
     };
 
