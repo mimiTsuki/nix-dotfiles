@@ -11,6 +11,7 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    yazi.url = "github:sxyazi/yazi";
   };
 
   outputs =
@@ -19,6 +20,7 @@
       nixpkgs,
       home-manager,
       nix-darwin,
+      yazi,
       ...
     }:
     let

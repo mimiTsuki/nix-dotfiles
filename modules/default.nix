@@ -31,6 +31,9 @@
   home.sessionVariables = {
   };
   programs.home-manager.enable = true;
+  programs.yazi = {
+    enable = true;
+  };
   imports = [
     ./claude
     ./gh
