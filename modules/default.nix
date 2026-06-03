@@ -33,6 +33,7 @@
   programs.home-manager.enable = true;
   programs.yazi = {
     enable = true;
+    shellWrapperName = "yy";
   };
   imports = [
     ./claude
