@@ -49,7 +49,7 @@
     initContent = lib.mkMerge [
       # compinit前に実行（Cursor Agent Mode対応の早期リターン）
       (lib.mkOrder 550 ''
-        if [[ -n "$npm_config_yes" ]] || [[ -n "$CI" ]] || [[ "$-" != *i* ]]; then
+        if [[ -n "$CURSOR_AGENT" ]]; then
           return
         fi
         export GPG_TTY=$TTY
