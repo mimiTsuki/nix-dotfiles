@@ -1,0 +1,17 @@
+# エディターの補完を設定スキーマに合わせて取得
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = '$all$line_break$aws$kubernetes$line_break$character'
+
+[aws]
+disabled = false
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+symbol = "☁️  "
+style = "bold blue"
+
+[kubernetes]
+disabled = false
+format = 'on [$symbol ($user on )($cluster in )$context \($namespace\)]($style) '
+symbol = "⎈ "
+style = "bold cyan"
+
