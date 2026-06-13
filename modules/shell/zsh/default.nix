@@ -12,11 +12,11 @@
     zsh-abbr = {
       enable = true;
       abbreviations = {
-        e = "eza --icons --git";
-        ea = "eza -a --icons --git";
-        ee = "eza -aahl --icons --git";
-        et = "eza -T -L 3 -a -I \"node_modules|.git|.cache\" --icons";
-        eta = "eza -T -a -I \"node_modules|.git|.cache\" --color=always --icons | less -r";
+        e = "eza --icons --git -1 --sort=type";
+        el = "eza --icons --git -l --sort=type";
+        ea = "eza -a --icons --git -1 --sort=type";
+        et = "eza -T -a -I \"node_modules|.git|.cache\" --icons --sort=type -L 3";
+        eta = "eza -T -a -I \"node_modules|.git|.cache\" --color=always --icons | less -r --sort=type";
         fdir = "fzf-cd";
         fdcrm = "fzf-docker-container-rm";
         fde = "fzf-docker-exec";
@@ -26,8 +26,7 @@
         ga = "git add";
         gs = "git status";
         gbr = "git branch";
-        gch = "git checkout";
-        gco = "claude --no-session-persistence --strict-mcp-config --model haiku -p \"/commit-jp\"";
+        gco = "git checkout";
         gl = "git log";
         glo = "git log --oneline";
       };
