@@ -22,6 +22,7 @@
     luajit
     mkcert
     ripgrep
+    sqruff
     tree
     tree-sitter
     watch
