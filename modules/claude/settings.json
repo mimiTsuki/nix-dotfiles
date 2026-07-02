@@ -1,4 +1,9 @@
 {
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
   "permissions": {
     "allow": [
       "Bash(npm:*)",
@@ -108,10 +113,12 @@
     "defaultMode": "acceptEdits"
   },
   "model": "opusplan",
-  "availableModels": ["claude-opus-4-6", "claude-sonnet-4-6", "haiku"],
-  "env": {
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6"
-  },
+  "availableModels": [
+    "opus",
+    "sonnet",
+    "haiku"
+  ],
+  "enforceAvailableModels": true,
   "hooks": {
     "Notification": [
       {
