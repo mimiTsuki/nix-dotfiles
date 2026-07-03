@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, username, herdr, ... }:
 {
   home.username = username;
   home.stateVersion = "25.11";
@@ -28,6 +28,8 @@
     watch
     wget
     yq-go
+  ] ++ [
+    herdr.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   home.sessionVariables = {
   };

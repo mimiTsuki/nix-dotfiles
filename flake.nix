@@ -11,7 +11,7 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    yazi.url = "github:sxyazi/yazi";
+    herdr.url = "github:ogulcancelik/herdr/v0.7.1";
   };
 
   outputs =
@@ -20,7 +20,7 @@
       nixpkgs,
       home-manager,
       nix-darwin,
-      yazi,
+      herdr,
       ...
     }:
     let
@@ -33,6 +33,7 @@
           specialArgs = {
             inherit self;
             inherit username;
+            inherit herdr;
           };
           modules = [
             ./hosts/${host}
@@ -47,7 +48,7 @@
             config.allowUnfreePredicate =
               pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "zsh-abbr" ];
           };
-          extraSpecialArgs = { inherit username; };
+          extraSpecialArgs = { inherit username herdr; };
           modules = [ ./modules ./hosts/${host} ];
         };
     in
