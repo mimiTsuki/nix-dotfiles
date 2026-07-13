@@ -16,7 +16,6 @@
     ".config/nvim/lua/plugins/blink.lua".source = ./lua/plugins/blink.lua;
     ".config/nvim/lua/plugins/bufferline.lua".source = ./lua/plugins/bufferline.lua;
     ".config/nvim/lua/plugins/diffview.lua".source = ./lua/plugins/diffview.lua;
-    ".config/nvim/lua/plugins/fyler.lua".source = ./lua/plugins/fyler.lua;
     ".config/nvim/lua/plugins/general.lua".source = ./lua/plugins/general.lua;
     ".config/nvim/lua/plugins/gitui.lua".source = ./lua/plugins/gitui.lua;
     ".config/nvim/lua/plugins/hop.lua".source = ./lua/plugins/hop.lua;
