@@ -46,6 +46,7 @@ end
 
 require("config.lazy")
 require("config.lsp")
+require("config.keylog")
 
 local function get_relative_path()
   local clients = vim.lsp.get_clients({ bufnr = 0 })
