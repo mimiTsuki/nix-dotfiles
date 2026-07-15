@@ -5,4 +5,5 @@
 "npm:@tailwindcss/language-server" = "latest"
 "node" = "latest"
 "pnpm" = "latest"
-
+"go" = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
