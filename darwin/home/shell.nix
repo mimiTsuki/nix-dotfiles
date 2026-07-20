@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   programs.zsh.initContent = ''
-    eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
   '';
 
   programs.zsh.zsh-abbr.abbreviations.pbjq = "pbpaste | jq . -S | pbcopy";
