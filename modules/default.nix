@@ -48,6 +48,7 @@
     ./gh
     ./git
     ./gitui
+    ./hunk
     ./mise
     ./nvim
     ./shell
