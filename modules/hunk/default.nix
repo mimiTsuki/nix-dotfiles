@@ -1,15 +1,11 @@
-{ hunk, ... }:
+{ pkgs, ... }:
+let
+  tomlFormat = pkgs.formats.toml { };
+in
 {
-  imports = [
-    hunk.homeManagerModules.default
-  ];
-
-  programs.hunk = {
-    enable = true;
-    settings = {
-      theme = "catppuccin-mocha";
-      watch = true;
-      line_number = true;
-    };
+  xdg.configFile."hunk/config.toml".source = tomlFormat.generate "hunk-config.toml" {
+    theme = "catppuccin-mocha";
+    watch = true;
+    line_number = true;
   };
 }

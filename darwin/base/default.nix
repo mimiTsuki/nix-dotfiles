@@ -9,6 +9,7 @@
     configurationRevision = self.rev or self.dirtyRev or null;
     primaryUser = username;
   };
+  users.users.${username}.home = "/Users/${username}";
   nix.enable = false;
   programs.zsh.enable = true;
   security.pam.services.sudo_local.touchIdAuth = true;
@@ -58,4 +59,5 @@
       };
     };
   };
+  time.timeZone = "Asia/Tokyo";
 }
