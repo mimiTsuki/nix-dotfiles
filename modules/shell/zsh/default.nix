@@ -4,6 +4,17 @@
     enable = true;
     enableCompletion = true;
 
+    # 世代切り替え(home.activationのinvalidateZshCompCache)で
+    # .zcompdumpが消えている間だけフルスキャンし、それ以外はキャッシュを信頼する
+    completionInit = ''
+      autoload -Uz compinit
+      if [[ -s "$HOME/.zcompdump" ]]; then
+        compinit -C
+      else
+        compinit
+      fi
+    '';
+
     history = {
       ignoreDups = true;
       share = true;
@@ -60,6 +71,12 @@
     ];
 
   };
+
+  # 世代切り替えのたびにcompletionのキャッシュを破棄し、
+  # 次の1回だけフルcompinitを走らせて内容をfpathの現状に同期させる
+  home.activation.invalidateZshCompCache = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    rm -f "$HOME"/.zcompdump*
+  '';
 
   home.file = {
     "zsh/init.zsh".source = ./zsh/init.zsh;
