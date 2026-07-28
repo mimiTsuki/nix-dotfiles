@@ -11,7 +11,7 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    herdr.url = "github:ogulcancelik/herdr/v0.7.1";
+    herdr.url = "github:ogulcancelik/herdr/v0.7.5";
   };
 
   outputs =

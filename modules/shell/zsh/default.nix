@@ -23,6 +23,7 @@
         fdl = "fzf-docker-log";
         fgco = "fzf-git-checkout";
         fgl = "fzf-git-log";
+        fgw = "fzf-git-worktree";
         ga = "git add";
         gs = "git status";
         gbr = "git branch";
@@ -68,6 +69,7 @@
     "zsh/functions/fzf-docker-exec".source = ./zsh/functions/fzf-docker-exec;
     "zsh/functions/fzf-docker-container-rm".source = ./zsh/functions/fzf-docker-container-rm;
     "zsh/functions/fzf-git-checkout".source = ./zsh/functions/fzf-git-checkout;
+    "zsh/functions/fzf-git-worktree".source = ./zsh/functions/fzf-git-worktree;
     "zsh/functions/fzf-cd".source = ./zsh/functions/fzf-cd;
     "zsh/functions/ghcr".source = ./zsh/functions/ghcr;
   };

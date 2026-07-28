@@ -1,0 +1,48 @@
+# fzfでgitのワークツリー(Claude Codeが作成したものも含む)を選んで移動する
+fzf-git-worktree() {
+  git rev-parse --is-inside-work-tree > /dev/null 2>&1 || {
+    print -u2 "fzf-git-worktree: gitリポジトリ内で実行してください"
+    return 1
+  }
+
+  # 注意: 変数名に"path"を使わないこと。zshの特殊変数$path(=$PATHの配列版)を
+  # ローカルシャドーしても、関数内でのコマンド探索(PATH)が壊れて fzf 自体が
+  # 見つからなくなる。
+  local cwd_root main line wt branch label mark selected
+  local -a rows
+  cwd_root=$(git rev-parse --show-toplevel)
+
+  # 末尾に空行を足して、最後のエントリも空行ケースで確実に確定させる
+  while IFS= read -r line; do
+    case $line in
+      "worktree "*) wt=${line#worktree }; branch="" ;;
+      "branch "*)   branch=${${line#branch }#refs/heads/} ;;
+      "detached")   branch="(detached)" ;;
+      "locked"*)    branch="$branch [locked]" ;;
+      "")
+        [[ -z $wt ]] && continue
+        : ${main:=$wt}          # porcelainの先頭は必ずメインワークツリー
+        [[ $wt == $cwd_root ]] && mark="*" || mark=" "
+        if [[ $wt == $main ]]; then
+          label="(main)"
+        elif [[ $wt == $main/* ]]; then
+          label=${wt#$main/}
+        else
+          label=${wt/#$HOME/\~}
+        fi
+        rows+=( "$(printf '%s %-45s %s\t%s' "$mark" "$label" "$branch" "$wt")" )
+        wt=""
+        ;;
+    esac
+  done < <(git worktree list --porcelain; echo)
+
+  selected=$(printf '%s\n' "${rows[@]}" |
+    fzf +m -q "${1:-}" \
+        --delimiter=$'\t' --with-nth=1 \
+        --header='* = 現在のワークツリー / enter: cd' \
+        --preview='git -C {2} -c color.status=always status --short --branch; echo;
+                   git -C {2} log --color=always --format="%C(auto)%h%d %s %C(#C0C0C0)%C(bold)%cr" -10' \
+        --preview-window='right:55%') || return
+
+  cd "${selected#*$'\t'}"
+}

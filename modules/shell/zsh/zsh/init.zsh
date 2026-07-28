@@ -30,6 +30,7 @@ _zload fzf-docker-exec
 _zload fzf-docker-log
 _zload fzf-git-checkout
 _zload fzf-git-log
+_zload fzf-git-worktree
 _zload ghcr
 
 # cdしたときにlsする
