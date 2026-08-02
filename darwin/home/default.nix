@@ -2,7 +2,7 @@
 {
   imports = [
     ./aeroSpace
-    ./hammerspoon
+    # ./hammerspoon
     ./homebrew
     ./karabiner
     ./shell.nix

@@ -45,7 +45,7 @@
     ./claude
     ./gh
     ./git
-    ./gitui
+    # ./gitui
     ./hunk
     ./mise
     ./nvim
