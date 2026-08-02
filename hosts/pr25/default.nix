@@ -4,6 +4,7 @@
     ../../darwin/base
     ../../darwin/home_manager.nix
   ];
+  home-manager.users.${username}.imports = [ ./home.nix ];
   nixpkgs.hostPlatform = "aarch64-darwin";
   system.primaryUser = username;
   users.users.${username}.home = "/Users/${username}";

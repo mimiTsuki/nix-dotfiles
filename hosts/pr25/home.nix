@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  aeroSpace.extraFloatingBundleIds = [ ];
+  aeroSpace.extraFloatingBundleIds = [
+    "jp.co.celsys.CLIPSTUDIOPAINT" # CLIP STUDIO PAINT
+  ];
 
   # 起動時のworkspace自動配置
   aeroSpace.workspaceAssignments = [
@@ -17,10 +19,6 @@
       workspace = "4";
     } # Obsidian
     {
-      bundleId = "com.tinyspeck.slackmacgap";
-      workspace = "5";
-    } # Slack
-    {
       bundleId = "com.anthropic.claudefordesktop";
       workspace = "8";
     } # Claude Desktop
@@ -28,15 +26,5 @@
       bundleId = "com.microsoft.VSCode";
       workspace = "9";
     } # VSCode
-  ];
-
-  home.packages = with pkgs; [
-    awscli2
-    docker-compose
-    nkf
-    podman
-    postgresql
-    sqlite
-    temporal-cli
   ];
 }
