@@ -1,7 +1,5 @@
 tap "felixkratz/formulae"
 tap "homebrew/bundle"
-tap "nikitabobko/tap"
 brew "felixkratz/formulae/borders"
 brew "hunk"
-cask "nikitabobko/tap/aerospace"
 
