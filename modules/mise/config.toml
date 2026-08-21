@@ -7,5 +7,6 @@
 "pnpm" = "latest"
 "go" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
-"github:ogulcancelik/herdr" = "0.8.0"
+"github:ogulcancelik/herdr" = "0.8.2"
 "npm:nx" = "22.6.3"
+"npm:takt" = "latest"
