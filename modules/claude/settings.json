@@ -55,35 +55,7 @@
       "Bash(gh workflow view:*)",
       "Bash(gh workflow list:*)",
       "Bash(gh run view:*)",
-      "Bash(gh run list:*)",
-      "mcp__claude_ai_Notion__notion-fetch",
-      "mcp__claude_ai_Notion__notion-search",
-      "mcp__claude_ai_Notion__notion-get-async-task",
-      "mcp__claude_ai_Notion__notion-get-comments",
-      "mcp__claude_ai_Notion__notion-get-teams",
-      "mcp__claude_ai_Notion__notion-get-users",
-      "mcp__claude_ai_Notion__notion-query-data-sources",
-      "mcp__claude_ai_Notion__notion-query-database-view",
-      "mcp__claude_ai_Notion__notion-query-meeting-notes",
-      "mcp__claude_ai_Notion__notion-download-attachment",
-      "mcp__claude_ai_Slack__slack_get_reactions",
-      "mcp__claude_ai_Slack__slack_list_channel_members",
-      "mcp__claude_ai_Slack__slack_read_canvas",
-      "mcp__claude_ai_Slack__slack_read_channel",
-      "mcp__claude_ai_Slack__slack_read_file",
-      "mcp__claude_ai_Slack__slack_read_thread",
-      "mcp__claude_ai_Slack__slack_read_user_profile",
-      "mcp__claude_ai_Slack__slack_search_channels",
-      "mcp__claude_ai_Slack__slack_search_emojis",
-      "mcp__claude_ai_Slack__slack_search_public",
-      "mcp__claude_ai_Slack__slack_search_public_and_private",
-      "mcp__claude_ai_Slack__slack_search_users",
-      "mcp__claude_ai_Google_Drive__search_files",
-      "mcp__claude_ai_Google_Drive__list_recent_files",
-      "mcp__claude_ai_Google_Drive__get_file_metadata",
-      "mcp__claude_ai_Google_Drive__get_file_permissions",
-      "mcp__claude_ai_Google_Drive__read_file_content",
-      "mcp__claude_ai_Google_Drive__download_file_content"
+      "Bash(gh run list:*)"
     ],
     "deny": [
       "Bash(rm -rf /)",
@@ -110,18 +82,11 @@
       "Bash(sudo vigr:*)",
       "Bash(sudo visudo:*)",
       "Bash(rm -rf .git)",
-      "Bash(git push:*)",
       "Bash(npm publish)",
-      "Bash(gh pr create:*)",
       "Bash(gh pr merge:*)",
-      "Bash(gh pr close:*)",
-      "Bash(gh pr edit:*)",
       "Bash(gh pr review:*)",
-      "Bash(gh pr comment:*)",
-      "Bash(gh issue create:*)",
       "Bash(gh issue close:*)",
       "Bash(gh issue edit:*)",
-      "Bash(gh issue comment:*)",
       "Bash(gh repo create:*)",
       "Bash(gh repo delete:*)",
       "Bash(gh repo edit:*)",
@@ -134,14 +99,6 @@
       "Bash(gh label create:*)",
       "Bash(gh secret set:*)",
       "Bash(gh variable set:*)",
-      "Bash(gh api -X POST:*)",
-      "Bash(gh api -X PUT:*)",
-      "Bash(gh api -X PATCH:*)",
-      "Bash(gh api -X DELETE:*)",
-      "Bash(gh api --method POST:*)",
-      "Bash(gh api --method PUT:*)",
-      "Bash(gh api --method PATCH:*)",
-      "Bash(gh api --method DELETE:*)",
       "Edit(/etc/**)",
       "Edit(/usr/**)",
       "Edit(/var/**)",
@@ -162,36 +119,18 @@
       "Edit(/etc/shadow)",
       "Edit(/etc/sudoers)"
     ],
-    "ask": [
-      "mcp__claude_ai_Google_Drive__create_file",
-      "mcp__claude_ai_Google_Drive__copy_file",
-      "mcp__claude_ai_Notion__notion-create-attachment",
-      "mcp__claude_ai_Notion__notion-create-comment",
-      "mcp__claude_ai_Notion__notion-create-database",
-      "mcp__claude_ai_Notion__notion-create-pages",
-      "mcp__claude_ai_Notion__notion-create-view",
-      "mcp__claude_ai_Notion__notion-duplicate-page",
-      "mcp__claude_ai_Notion__notion-move-pages",
-      "mcp__claude_ai_Notion__notion-update-data-source",
-      "mcp__claude_ai_Notion__notion-update-page",
-      "mcp__claude_ai_Notion__notion-update-view",
-      "mcp__claude_ai_Slack__slack_add_reaction",
-      "mcp__claude_ai_Slack__slack_create_canvas",
-      "mcp__claude_ai_Slack__slack_create_conversation",
-      "mcp__claude_ai_Slack__slack_schedule_message",
-      "mcp__claude_ai_Slack__slack_send_message",
-      "mcp__claude_ai_Slack__slack_send_message_draft",
-      "mcp__claude_ai_Slack__slack_update_canvas"
-    ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
-  "model": "opusplan",
+  "model": "sonnet",
   "availableModels": [
     "opus",
     "sonnet",
     "haiku"
   ],
   "enforceAvailableModels": true,
+  "worktree": {
+    "baseRef": "head"
+  },
   "statusLine": {
     "type": "command",
     "command": "sh ~/.claude/statusline-command.sh"
@@ -206,8 +145,10 @@
     "lua-lsp@claude-plugins-official": true,
     "figma@claude-plugins-official": true
   },
+  "effortLevel": "high",
   "tui": "fullscreen",
-  "worktree": {
-    "baseRef": "head"
+  "fileSuggestion": {
+    "type": "command",
+    "command": "~/.claude/file-suggestion.sh"
   }
 }
