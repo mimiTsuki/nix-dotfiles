@@ -146,9 +146,5 @@
     "figma@claude-plugins-official": true
   },
   "effortLevel": "high",
-  "tui": "fullscreen",
-  "fileSuggestion": {
-    "type": "command",
-    "command": "~/.claude/file-suggestion.sh"
-  }
+  "tui": "fullscreen"
 }
