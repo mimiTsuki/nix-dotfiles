@@ -2,4 +2,5 @@ tap "felixkratz/formulae"
 tap "homebrew/bundle"
 brew "felixkratz/formulae/borders"
 brew "hunk"
+cask "scroll-reverser"
 
