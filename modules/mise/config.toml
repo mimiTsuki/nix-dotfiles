@@ -4,6 +4,7 @@
 "npm:@vtsls/language-server" = "latest"
 "npm:@tailwindcss/language-server" = "latest"
 "node" = "latest"
+"bun" = "latest"
 "pnpm" = "latest"
 "go" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
