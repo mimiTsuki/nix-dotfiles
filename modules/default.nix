@@ -31,6 +31,9 @@
   ];
   home.sessionVariables = {
   };
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+  ];
   programs.home-manager.enable = true;
   programs.yazi = {
     enable = true;
