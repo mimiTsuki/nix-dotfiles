@@ -2,6 +2,7 @@
 input=$(cat)
 
 model=$(echo "$input" | jq -r '.model.display_name // "Unknown"')
+effort=$(echo "$input" | jq -r '.effort.level // empty')
 
 make_bar() {
   pct="$1"
@@ -77,8 +78,12 @@ if [ -n "$week_pct" ]; then
   fi
 fi
 
-if [ -n "$rate_str" ]; then
-  printf "%s  %s  %s" "$model" "$ctx_bar" "$rate_str"
-else
-  printf "%s  %s" "$model" "$ctx_bar"
+segments="$model"
+if [ -n "$effort" ]; then
+  segments="${segments}  effort[${effort}]"
 fi
+segments="${segments}  ${ctx_bar}"
+if [ -n "$rate_str" ]; then
+  segments="${segments}  ${rate_str}"
+fi
+printf "%s" "$segments"
