@@ -33,13 +33,6 @@ _zload fzf-git-log
 _zload fzf-git-worktree
 _zload ghcr
 
-# cdしたときにlsする
-chpwd() {
-    if [[ $(pwd) != $HOME ]]; then
-        eza --icons --git
-    fi
-}
-
 # マシン固有設定
 if [ -e "$HOME/zsh/local.zsh" ]; then
     source "$HOME/zsh/local.zsh"
