@@ -2,3 +2,5 @@
 **/review_**.md
 **/.DS_Store
 **/.claude/settings.local.json
+personas/
+.scratch/

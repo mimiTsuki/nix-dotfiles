@@ -25,6 +25,7 @@
 [core]
     ignorecase = true
     quotePath = false
+    excludesFile = ~/.config/git/ignore
 [push]
     default = current
     autoSetupRemote = true
