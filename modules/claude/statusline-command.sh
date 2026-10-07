@@ -78,9 +78,47 @@ if [ -n "$week_pct" ]; then
   fi
 fi
 
+git_segment() {
+  dir="$1"
+  status=$(git -C "$dir" --no-optional-locks status --porcelain=v2 --branch 2>/dev/null) || return
+  branch=$(printf "%s\n" "$status" | awk '/^# branch.head /{print $3}')
+  [ "$branch" = "(detached)" ] && branch="detached@$(printf "%s\n" "$status" | awk '/^# branch.oid /{print substr($3,1,7)}')"
+  changed=$(printf "%s\n" "$status" | grep -cv '^#')
+
+  if [ "$changed" -gt 0 ]; then
+    worktree="● ${changed}"
+  else
+    worktree="✓"
+  fi
+
+  ab=$(printf "%s\n" "$status" | awk '/^# branch.ab /{print $3, $4}')
+  if [ -z "$ab" ]; then
+    remote="no-upstream"
+  else
+    ahead=${ab%% *}; ahead=${ahead#+}
+    behind=${ab##* }; behind=${behind#-}
+    if [ "$ahead" -eq 0 ] && [ "$behind" -eq 0 ]; then
+      remote="="
+    else
+      remote=""
+      [ "$ahead" -gt 0 ] && remote="↑ ${ahead}"
+      [ "$behind" -gt 0 ] && remote="${remote:+${remote} }↓ ${behind}"
+    fi
+  fi
+
+  printf "git[%s %s %s]" "$branch" "$worktree" "$remote"
+}
+
+current_dir=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // empty')
+git_str=""
+[ -n "$current_dir" ] && git_str=$(git_segment "$current_dir")
+
 segments="$model"
 if [ -n "$effort" ]; then
   segments="${segments}  effort[${effort}]"
+fi
+if [ -n "$git_str" ]; then
+  segments="${segments}  ${git_str}"
 fi
 segments="${segments}  ${ctx_bar}"
 if [ -n "$rate_str" ]; then
