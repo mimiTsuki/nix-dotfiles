@@ -28,6 +28,7 @@
         ea = "eza -a --icons --git -1 --sort=type";
         et = "eza -T -a -I \"node_modules|.git|.cache\" --icons --sort=type -L 3";
         eta = "eza -T -a -I \"node_modules|.git|.cache\" --color=always --icons | less -r --sort=type";
+        cce = "claude-code-exit";
         fdir = "fzf-cd";
         fdcrm = "fzf-docker-container-rm";
         fde = "fzf-docker-exec";
@@ -89,5 +90,6 @@
     "zsh/functions/fzf-git-worktree".source = ./zsh/functions/fzf-git-worktree;
     "zsh/functions/fzf-cd".source = ./zsh/functions/fzf-cd;
     "zsh/functions/ghcr".source = ./zsh/functions/ghcr;
+    "zsh/functions/claude-code-exit".source = ./zsh/functions/claude-code-exit;
   };
 }

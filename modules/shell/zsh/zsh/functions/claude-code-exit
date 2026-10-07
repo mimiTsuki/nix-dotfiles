@@ -1,0 +1,32 @@
+# herdr上で待機中(idle/done)のClaude Codeを一括で/exitする。作業中・確認待ちのものは残す
+claude-code-exit () {
+    if [ "$HERDR_ENV" != "1" ]; then
+        echo "herdrの中で実行してください" >&2
+        return 1
+    fi
+
+    local dry_run=0
+    [ "$1" = "-n" ] && dry_run=1
+
+    local agents
+    agents=$(herdr agent list | jq -r --arg self "$HERDR_PANE_ID" '
+        .result.agents[]
+        | select(.agent == "claude" and .pane_id != $self)
+        | [.pane_id, .agent_status, .cwd] | @tsv')
+
+    local pane_id agent_status cwd
+    while IFS=$'\t' read -r pane_id agent_status cwd; do
+        [ -z "$pane_id" ] && continue
+        case "$agent_status" in
+            idle|done)
+                echo "exit: $pane_id ($cwd)"
+                if [ $dry_run -eq 0 ]; then
+                    herdr agent prompt "$pane_id" "/exit"
+                fi
+                ;;
+            *)
+                echo "skip: $pane_id [$agent_status] ($cwd)"
+                ;;
+        esac
+    done <<< "$agents"
+}

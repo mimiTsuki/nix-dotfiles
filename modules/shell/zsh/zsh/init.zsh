@@ -32,6 +32,7 @@ _zload fzf-git-checkout
 _zload fzf-git-log
 _zload fzf-git-worktree
 _zload ghcr
+_zload claude-code-exit
 
 # マシン固有設定
 if [ -e "$HOME/zsh/local.zsh" ]; then
