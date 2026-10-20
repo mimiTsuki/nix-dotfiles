@@ -3,6 +3,7 @@
   home.username = username;
   home.stateVersion = "25.11";
   home.packages = with pkgs; [
+    ax
     git
     nixfmt
     nil

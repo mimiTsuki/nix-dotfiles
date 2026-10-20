@@ -11,6 +11,10 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ax = {
+      url = "github:yusukebe/ax";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -19,12 +23,18 @@
       nixpkgs,
       home-manager,
       nix-darwin,
+      ax,
       ...
     }:
     let
       sudoUser = builtins.getEnv "SUDO_USER";
       rawUsername = if sudoUser != "" then sudoUser else builtins.getEnv "LOGNAME";
       username = if rawUsername == "" then throw "環境変数 LOGNAME が設定されていません。" else rawUsername;
+      overlays = [
+        (final: prev: {
+          ax = ax.packages.${final.stdenv.hostPlatform.system}.default;
+        })
+      ];
       makeDarwinSystem =
         { username, host }:
         nix-darwin.lib.darwinSystem {
@@ -35,13 +45,14 @@
           modules = [
             ./hosts/${host}
             home-manager.darwinModules.home-manager
+            { nixpkgs.overlays = overlays; }
           ];
         };
       makeHomeConfig =
         { username, system, host }:
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
-            inherit system;
+            inherit system overlays;
             config.allowUnfreePredicate =
               pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "zsh-abbr" ];
           };
